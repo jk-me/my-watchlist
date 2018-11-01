@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   get '/signup' do
     if session[:user_id] != nil
-      redirect '/users/:slug' #already signed in!
+      redirect "/users/#{session[:user_id]}" #already signed in!
     else
       erb :'users/new'
     end
@@ -14,13 +14,13 @@ class UsersController < ApplicationController
     else
       user = User.create(params[:user])
       session[:user_id] = user.id
-      redirect '/users/:slug'
+      redirect "/users/#{user.id}"
     end
   end
 
   get '/login' do
     if session[:user_id] != nil
-      redirect '/users/:slug' #already logged in!
+      redirect "/users/#{session[:user_id]}"  #already logged in!
     else
       erb :'users/login'
     end
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     user = User.find_by(username: params[:username])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect '/users/:slug' #wrong password or username!
+      redirect "/users/#{user.id}" #wrong password or username!
     else
       redirect '/login'
     end
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
     end
   end
 
-  get '/users/:slug' do
+  get '/users/:id' do
     erb :'users/show'
   end
 
