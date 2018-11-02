@@ -19,6 +19,12 @@ class ApplicationController < Sinatra::Base
         redirect "/"
       end
     end
+
+    def redirect_if_wrong_user
+      if session[:user_id] != params[:id].to_i
+        redirect "/users/#{session[:user_id]}"
+      end
+    end
   end
 
 end

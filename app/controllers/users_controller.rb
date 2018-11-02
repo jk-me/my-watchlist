@@ -30,31 +30,25 @@ class UsersController < ApplicationController
     user = User.find_by(username: params[:username])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect "/users/#{user.id}" #wrong password or username!
+      redirect "/users/#{user.id}" #wrong pw or username!
     else
       redirect '/login'
     end
   end
 
   get '/logout' do
-    if session[:user_id] == nil
-      redirect '/'  #not logged in!
-    else
-      session.clear
-      redirect '/'  #logged out!
-    end
+    redirect_if_not_logged_in #not logged in!
+    session.clear
+    redirect '/'  #logged out!
   end
 
   get '/users/:id' do
-    redirect '/' if session[:user_id] == nil
-        #not logged in!
+    redirect_if_not_logged_in #not logged in!
+    redirect_if_wrong_user #wrong user!
 
-    if session[:user_id] != params[:id].to_i 
-      redirect "/users/#{session[:user_id]}" #does not let logged in user access another user's page
-    else
-      @user = User.find(session[:user_id])
-      erb :'users/show'
-    end
+    @user = User.find(session[:user_id])
+    erb :'users/show'
+
 
   end
 
