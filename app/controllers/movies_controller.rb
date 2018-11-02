@@ -15,4 +15,9 @@ class MoviesController < ApplicationController
       redirect "/users/#{session[:user_id]}"
     end
   end
+
+  get '/movies/:id/edit' do
+    @movie = Movie.find(params[:id])
+    erb :'movies/edit'
+  end
 end
