@@ -5,11 +5,13 @@ class MoviesController < ApplicationController
     erb :'movies/new'
   end
 
-  post '/movie' do
+  post '/movies' do
     if params[:movie][:name].empty?
-      redirect '/movie/new' #incomplete submission! must have movie name!
+      redirect '/movies/new' #incomplete submission! must have movie name!
     else
-      Movie.create(params[:movie], user_id: session[:user_id])
+      m = Movie.create(params[:movie])
+      m.user_id = session[:user_id]
+      m.save
       redirect "/users/#{session[:user_id]}"
     end
   end

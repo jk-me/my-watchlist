@@ -1,9 +1,15 @@
 <p><a href='/logout'>Log Out</a></p>
-<p><a href='/movies/new'>Add a New Movie to your List</a></p>
+<p><a href='/movies/new'>Add a Movie to your List</a></p>
+<p><a href='/shows/new'>Add a Show to your List</a></p>
+
 
 <h3>Movies</h3>
 <%@user.movies.each do |m|%>
   <p><%=m.name%> (<%=m.year%>)</p>
+<%end%>
+<h3>Shows</h3>
+<%@user.shows.each do |s|%>
+  <p><%=s.name%> - <%=s.next_episode%></p>
 <%end%>
 <%=params[:id]%>
 <%=session[:user_id]%>
