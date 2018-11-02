@@ -46,7 +46,12 @@ class UsersController < ApplicationController
   end
 
   get '/users/:id' do
-    erb :'users/show'
+    if session[:user_id] == nil
+      redirect '/'  #not logged in!
+    elsif session[:user_id] != params[:id]
+      redirect "/users/#{session[:user_id]}" #does not let logged in user access another user's page
+    else
+      erb :'users/show'
   end
 
 end
