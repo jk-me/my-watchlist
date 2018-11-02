@@ -6,11 +6,11 @@ class MoviesController < ApplicationController
   end
 
   post '/movie' do
-    if params[:show][:name].empty? and params[:movie][:name].empty?
-      redirect '/movie/new' #incomplete submission! must have show or movie name!
+    if params[:movie][:name].empty?
+      redirect '/movie/new' #incomplete submission! must have movie name!
     else
-      #Tweet.create(content: params[:content], user_id: session[:user_id])
-      redirect '/tweets'
+      Movie.create(params[:movie], user_id: session[:user_id])
+      redirect "/users/#{session[:user_id]}"
     end
   end
 end

@@ -1,2 +1,9 @@
 <p><a href='/logout'>Log Out</a></p>
-<p><a href='/media/new'>Add a New Show or Movie to your List</a></p>
+<p><a href='/movies/new'>Add a New Movie to your List</a></p>
+
+<h3>Movies</h3>
+<%@user.movies.each do |m|%>
+  <p><%=m.name%> (<%=m.year%>)</p>
+<%end%>
+<%=params[:id]%>
+<%=session[:user_id]%>
