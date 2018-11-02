@@ -13,4 +13,12 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
+  helpers do
+    def redirect_if_not_logged_in
+      if session[:user_id] == nil
+        redirect "/"
+      end
+    end
+  end
+
 end
