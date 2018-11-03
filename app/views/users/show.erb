@@ -1,6 +1,5 @@
-<p><a href='/logout'>Log Out</a></p>
-<p><a href='/movies/new'>Add a Movie to your List</a></p>
-<p><a href='/shows/new'>Add a Show to your List</a></p>
+<h1><%=@user.username%>'s Watchlist!</h1>
+<p><a href='/movies/new'>Add a Movie</a>  <a href='/shows/new'>Add a Show</a>  <a href='/logout'>Log Out</a></p>
 
 
 <h3>Movies</h3>
@@ -8,11 +7,7 @@
   <p><a href="/movies/<%=m.id%>/edit"><%=m.name%> (<%=m.year%>)<a></p>
 <%end%>
 
-<h3>Shows</h3>
-<p>Name - Next Episode</p>
+<h3>Shows - current episode</h3>
 <%@user.shows.each do |s|%>
   <p><a href="/shows/<%=s.id%>/edit"><%=s.name%></a> - <%=s.next_episode%></p>
 <%end%>
-
-<%=params[:id]%>
-<%=session[:user_id]%>
