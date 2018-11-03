@@ -3,7 +3,7 @@
 <form method='post' action ='/shows/<%=@show.id%>'>
   <input id='hidden' type='hidden' name='_method' value='patch'>
   <p>Name: <input type='text' name='show[name]' value='<%=@show.name%>'></p>
-  <p>Current Episode: <input type='text' name='show[year]' value='<%=@show.year%>'></p>
+  <p>Current Episode: <input type='text' name='show[next_episode]' value='<%=@show.next_episode%>'></p>
 
   <input type='submit' value='Submit'>
 </form>

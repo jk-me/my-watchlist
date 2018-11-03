@@ -11,7 +11,7 @@
 <h3>Shows</h3>
 <p>Name - Next Episode</p>
 <%@user.shows.each do |s|%>
-  <p><%=s.name%> - <%=s.next_episode%></p>
+  <p><a href="/shows/<%=s.id%>/edit"><%=s.name%></a> - <%=s.next_episode%></p>
 <%end%>
 
 <%=params[:id]%>
