@@ -19,12 +19,13 @@ class MoviesController < ApplicationController
 
   get '/movies/:id/edit' do
     redirect_if_not_logged_in
-    #correct user check
     @movie = Movie.find(params[:id])
+
     erb :'movies/edit'
   end
 
   patch '/movies/:id' do
+    redirect_current_user if params[:movie][:name].empty?  #incomplete submission! must have movie name!
     m = Movie.find(params[:id])
     m.update(params[:movie])
     redirect "/users/#{session[:user_id]}"

@@ -12,14 +12,13 @@
         <p>Welcome, <%=current_user.username %></p>
 
       <% else %>
-        <a href="/signup">Sign Up</a>
-        <a href="/login"> Log In </a>
+        <p><a href="/signup">Sign Up</a> |
+        <a href="/login"> Log In </a></p>
       <%end %>
 
     </nav>
     <div class="container">
       <%= yield %>
     </div>
-
   </body>
 </html>
