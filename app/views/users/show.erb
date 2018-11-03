@@ -7,10 +7,12 @@
 <%@user.movies.each do |m|%>
   <p><a href="/movies/<%=m.id%>/edit"><%=m.name%> (<%=m.year%>)<a></p>
 <%end%>
+
 <h3>Shows</h3>
 <p>Name - Next Episode</p>
 <%@user.shows.each do |s|%>
   <p><%=s.name%> - <%=s.next_episode%></p>
 <%end%>
+
 <%=params[:id]%>
 <%=session[:user_id]%>

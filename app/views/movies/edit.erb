@@ -1,0 +1,14 @@
+<h2>Edit Movie</h2>
+
+<form method='post' action ='/movies/<%=@movie.id%>'>
+  <input id='hidden' type='hidden' name='_method' value='patch'>
+  <p>Name: <input type='text' name='movie[name]' value='<%=@movie.name%>'></p>
+  <p>Year: <input type='text' name='movie[year]' value='<%=@movie.year%>'></p>
+
+  <input type='submit' value='Submit'>
+</form>
+
+<form method='post' action ='/movies/<%=@movie.id%>'>
+  <input id='hidden' type='hidden' name='_method' value='delete'>
+  <input type='submit' value='Delete From List'>
+</form>
