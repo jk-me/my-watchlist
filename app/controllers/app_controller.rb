@@ -30,7 +30,7 @@ class ApplicationController < Sinatra::Base
       User.find(session[:user_id])
     end
 
-    def redirect_current_user
+    def redirect_current_user_page
       redirect "/users/#{session[:user_id]}"
     end
 

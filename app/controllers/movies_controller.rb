@@ -13,28 +13,28 @@ class MoviesController < ApplicationController
       m = Movie.create(params[:movie])
       m.user_id = session[:user_id]
       m.save
-      redirect "/users/#{session[:user_id]}"
+      redirect_current_user_page
     end
   end
 
   get '/movies/:id/edit' do
     redirect_if_not_logged_in
     @movie = Movie.find(params[:id])
-
+    redirect_current_user_page if current_user.id != @movie.user_id
     erb :'movies/edit'
   end
 
   patch '/movies/:id' do
-    redirect_current_user if params[:movie][:name].empty?  #incomplete submission! must have movie name!
+    redirect_current_user_page if params[:movie][:name].empty?  #incomplete submission! must have movie name!
     m = Movie.find(params[:id])
     m.update(params[:movie])
-    redirect "/users/#{session[:user_id]}"
+    redirect_current_user_page
   end
 
   delete '/movies/:id' do
     m = Movie.find(params[:id])
     m.delete
-    redirect "/users/#{session[:user_id]}"
+    redirect_current_user_page
 
   end
 
