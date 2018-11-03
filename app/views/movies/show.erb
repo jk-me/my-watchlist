@@ -1,0 +1,11 @@
+<p>Movie: <%=@movie.name%></p>
+<p>Release Year: <%=@movie.year%></p>
+
+<form method='get' action ='/movies/<%=@movie.id%>/edit'>
+  <input type='submit' value='Edit'>
+</form>
+
+<form method='post' action ='/movies/<%=@movie.id%>'>
+  <input id='hidden' type='hidden' name='_method' value='delete'>
+  <input type='submit' value='Delete From List'>
+</form>

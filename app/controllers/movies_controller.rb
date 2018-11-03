@@ -17,6 +17,13 @@ class MoviesController < ApplicationController
     end
   end
 
+  get '/movies/:id' do
+    redirect_if_not_logged_in
+    @movie = Movie.find(params[:id])
+    redirect_current_user_page if current_user.id != @movie.user_id
+    erb :'movies/show'
+  end
+
   get '/movies/:id/edit' do
     redirect_if_not_logged_in
     @movie = Movie.find(params[:id])

@@ -4,7 +4,7 @@
 
 <h3>Movies</h3>
 <%@user.movies.each do |m|%>
-  <p><a href="/movies/<%=m.id%>/edit"><%=m.name%> (<%=m.year%>)</a></p>
+  <p><a href="/movies/<%=m.id%>"><%=m.name%> (<%=m.year%>)</a></p>
 <%end%>
 
 <h3>Shows</h3>
