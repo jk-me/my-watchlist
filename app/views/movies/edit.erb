@@ -2,8 +2,8 @@
 
 <form method='post' action ='/movies/<%=@movie.id%>'>
   <input id='hidden' type='hidden' name='_method' value='patch'>
-  <p>Name: <input type='text' name='movie[name]' value='<%=@movie.name%>'></p>
-  <p>Year: <input type='text' name='movie[year]' value='<%=@movie.year%>'></p>
+  <p>Movie Name: <input type='text' name='movie[name]' value='<%=@movie.name%>'></p>
+  <p>Release Year: <input type='text' name='movie[year]' value='<%=@movie.year%>'></p>
 
   <input type='submit' value='Submit'>
 </form>
