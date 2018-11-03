@@ -9,5 +9,5 @@
 
 <h3>Shows</h3>
 <%@user.shows.each do |s|%>
-  <p><a href="/shows/<%=s.id%>/edit"><%=s.name%></a> - <%=s.next_episode%></p>
+  <p><a href="/shows/<%=s.id%>"><%=s.name%></a> - <%=s.next_episode%></p>
 <%end%>

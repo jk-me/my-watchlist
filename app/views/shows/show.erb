@@ -1,2 +1,11 @@
 <p>Series: <%=@show.name%></p>
 <p>Current Episode: <%=@show.next_episode%></p>
+
+<form method='get' action ='/shows/<%=@show.id%>/edit'>
+  <input type='submit' value='Edit'>
+</form>
+
+<form method='post' action ='/shows/<%=@show.id%>'>
+  <input id='hidden' type='hidden' name='_method' value='delete'>
+  <input type='submit' value='Delete From List'>
+</form>
