@@ -16,6 +16,13 @@ class ShowsController < ApplicationController
     end
   end
 
+  get '/shows/:id' do
+    redirect_if_not_logged_in
+    @show = Show.find(params[:id])
+    redirect_current_user_page if current_user.id != @show.user_id
+    erb :'shows/show'
+  end
+
   get '/shows/:id/edit' do
     redirect_if_not_logged_in
     @show = Show.find(params[:id])
