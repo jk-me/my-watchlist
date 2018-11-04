@@ -3,11 +3,15 @@
 <form method='post' action ='/movies' id='new_movie'>
 
   <h3>Add a Movie: </h3>
-  <p>Movie Name: <input type='text' name='movie[name]'></p>
-  <p>Release Year: <input type='text' name='movie[year]'></p>
-  <p>Where to Watch: <input type='text' name='movie[where_to_watch]'></p>
+
+  <p>Name (required): <input type='text' name='movie[name]' placeholder="Cinderella"></p>
+
+  <p>Release Year: <input type='text' name='movie[year]' placeholder="2015"></p>
+
+  <p>Where to Watch: <input type='text' name='movie[where_to_watch]' placeholder="Netflix, In theaters, etc."></p>
+
   <p>Notes:</p>
-    <textarea rows="4" cols="50" name="movie[desc]" form='new_movie' ></textarea>
+    <textarea rows="4" cols="50" name="movie[desc]" form='new_movie' placeholder="Live action, prince charming played by the guy from game of thrones, etc."></textarea>
 
 
   <p><input type='submit' value='Submit'></p>

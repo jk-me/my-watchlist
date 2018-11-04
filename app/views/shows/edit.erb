@@ -2,9 +2,13 @@
 
 <form method='post' action ='/shows/<%=@show.id%>' id='edit_show'>
   <input id='hidden' type='hidden' name='_method' value='patch'>
+
   <p>Series Name: <input type='text' name='show[name]' value='<%=@show.name%>'></p>
+
   <p>Current Episode: <input type='text' name='show[next_episode]' value='<%=@show.next_episode%>'></p>
+
   <p>Where to Watch: <input type='text' name='show[where_to_watch]' value='<%=@show.where_to_watch%>'</p>
+  
   <p>Notes:</p>
     <textarea rows="4" cols="50" name="show[desc]" form='edit_show' ><%=@show.desc%></textarea>
 
