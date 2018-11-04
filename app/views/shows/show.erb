@@ -1,5 +1,7 @@
 <p>Series: <%=@show.name%></p>
 <p>Current Episode: <%=@show.next_episode%></p>
+<p>Where to Watch: <%=@show.where_to_watch%></p>
+<p>Notes: <%=@show.desc%></p>
 
 <form method='get' action ='/shows/<%=@show.id%>/edit'>
   <input type='submit' value='Edit'>

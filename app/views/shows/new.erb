@@ -1,9 +1,13 @@
 <h1>Add to your Watchlist!</h1>
 
-<form method='post' action ='/shows'>
+<form method='post' action ='/shows' id='new_show'>
   <h3>Add a Series: </h3>
   <p>Series Name: <input type='text' name='show[name]'></p>
   <p>Next episode to watch: <input type='text' name='show[next_episode]'></p>
+  <p>Where to Watch: <input type='text' name='show[where_to_watch]' ></p>
+  <p>Notes:</p>
+    <textarea rows="4" cols="50" name="show[desc]" form='new_show' ></textarea>
 
-  <input type='submit' value='submit'>
+  <p><input type='submit' value='Submit'></p>
+
 </form>
