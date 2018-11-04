@@ -1,5 +1,7 @@
 <p>Movie: <%=@movie.name%></p>
 <p>Release Year: <%=@movie.year%></p>
+<p>Where to Watch: <%=@movie.where_to_watch%></p>
+<p>Notes: <%=@movie.desc%></p>
 
 <form method='get' action ='/movies/<%=@movie.id%>/edit'>
   <input type='submit' value='Edit'>
