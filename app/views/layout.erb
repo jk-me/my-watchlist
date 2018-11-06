@@ -18,6 +18,11 @@
 
     </nav>
     <div class="container">
+      <% if !@error_message.nil? %>
+        <div class="alert alert-warning">
+          <%= @error_message %>
+        </div>
+      <% end %>
       <%= yield %>
     </div>
   </body>

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   get '/signup' do
+    @error_message = params[:error]
     if session[:user_id] != nil
       redirect_current_user_page #already signed in!
     else
@@ -10,7 +11,7 @@ class UsersController < ApplicationController
 
   post '/signup' do
     if params[:user][:username].empty? || params[:user][:password].empty? || (User.find_by(username: params[:user][:username])!=nil)
-      redirect '/signup' #incomplete sign up form!
+      redirect '/signup?error=Incomplete sign up form, or username has already been taken!'
     else
       user = User.create(params[:user])
       session[:user_id] = user.id
@@ -19,6 +20,7 @@ class UsersController < ApplicationController
   end
 
   get '/login' do
+    @error_message = params[:error]
     if session[:user_id] != nil
       redirect_current_user_page  #already logged in!
     else
@@ -30,9 +32,9 @@ class UsersController < ApplicationController
     user = User.find_by(username: params[:username])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_current_user_page #wrong pw or username!
+      redirect_current_user_page
     else
-      redirect '/login'
+      redirect '/login?error=Incorrect username or password!'
     end
   end
 
@@ -43,8 +45,9 @@ class UsersController < ApplicationController
   end
 
   get '/users/:id' do
+    @error_message = params[:error]
     redirect_if_not_logged_in #not logged in!
-    redirect_if_wrong_user #wrong user!
+    redirect_wrong_user if session[:user_id] != params[:id].to_i #wrong user!
 
     @user = User.find(session[:user_id])
     erb :'users/show'
