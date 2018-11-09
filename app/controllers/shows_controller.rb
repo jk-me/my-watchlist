@@ -34,12 +34,14 @@ class ShowsController < ApplicationController
   patch '/shows/:id' do
     redirect "/users/#{session[:user_id]}?error=Submit error, name required!" if params[:show][:name].empty?  #incomplete submission! must have name!
     s = Show.find(params[:id])
+    redirect_wrong_user if current_user.id != s.user_id
     s.update(params[:show])
     redirect_current_user_page
   end
 
   delete '/shows/:id' do
     s = Show.find(params[:id])
+    redirect_wrong_user if current_user.id != s.user_id
     s.delete
     redirect_current_user_page
 

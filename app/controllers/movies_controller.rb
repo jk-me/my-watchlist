@@ -35,12 +35,14 @@ class MoviesController < ApplicationController
   patch '/movies/:id' do
     redirect "/users/#{session[:user_id]}?error=Submit error, name required!" if params[:movie][:name].empty?  #incomplete submission! must have movie name!
     m = Movie.find(params[:id])
+    redirect_wrong_user if current_user.id != m.user_id
     m.update(params[:movie])
     redirect_current_user_page
   end
 
   delete '/movies/:id' do
     m = Movie.find(params[:id])
+    redirect_wrong_user if current_user.id != m.user_id
     m.delete
     redirect_current_user_page
 
