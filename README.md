@@ -10,6 +10,10 @@ Run 'bundle install' and then 'shotgun' in your terminal. A local server will be
 
 Create lists of movies and shows, with notes on current episode, release year and where to watch.
 
+## Blog
+
+A blog post detailing notes on the creation of this app can be found here: http://jellyjen.com/sinatra_project_my_watchlist
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/jk-me/my-watchlist. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
