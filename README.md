@@ -6,6 +6,8 @@ A web application to track movies and shows you are currently watching or would 
 
 Run 'bundle install' and then 'shotgun' in your terminal. A local server will be set up.
 
+Navigate to the ip address shown in your browser. 
+
 ## Usage
 
 Create lists of movies and shows, with notes on current episode, release year and where to watch.
