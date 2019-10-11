@@ -4,17 +4,21 @@ A web application to track movies and shows you are currently watching or would 
 
 ## Installation
 
-Run 'bundle install' and then 'shotgun' in your terminal. A local server will be set up.
+This app is deployed on heroku at: [my-watchlist](http://mywatchlist-jkme.herokuapp.com/)
 
-Navigate to the ip address shown in your browser. 
+To run locally, clone this repository and in its root directory run 'bundle install' and then 'shotgun' in your terminal. A local server will be set up.
+
+Navigate to the ip address shown in your terminal output (localhost:9393, or similar) using your internet browser. 
 
 ## Usage
 
-Create lists of movies and shows, with notes on current episode, release year and where to watch.
+A web application that allows users to create lists of movies and shows, with notes on current episode, release year and where to watch.
 
-## Blog
+## Author
 
-A blog post detailing notes on the creation of this app can be found here: http://jellyjen.com/sinatra_project_my_watchlist
+* **Jenny Kam**
+ [jk-me](https://github.com/jk-me)
+ * **Blog:** [my-watchlist](https://jk-me.github.io/sinatra_project_my_watchlist)
 
 ## Contributing
 
