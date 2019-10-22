@@ -9,7 +9,7 @@ gem 'bcrypt'
 gem 'thin'
 
 # gem 'sqlite3'
-gem 'pg', '0.15'
+gem 'pg'
 gem 'shotgun'
 gem 'pry'
 gem "tux"
